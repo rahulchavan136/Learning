@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useReducer } from 'react';
+ import Filter from './components/Filter';
+import './App.css'; 
+import { initialState, reducer } from './components/reducer';
+import CardComponent from './components/CardComponent';
+import { Container } from 'react-bootstrap';
 
-function App() {
+const App = () => {
+  const [state, dispatch] = useReducer(reducer, initialState);
+
+  const filteredCards = state.filter === 'All' ? state.cards : state.cards.filter(card => card.category === state.filter);
+  console.log(filteredCards);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container>
+      <h1>Card Management</h1>
+      <Filter setFilter={(filter) => dispatch({ type: 'SET_FILTER', payload: filter })} /><br />
+      <div className="card-list">
+        {filteredCards.map(card => (
+          <CardComponent key={card.id} card={card} onDelete={(id) => dispatch({ type: 'DELETE_CARD', payload: id })} />
+        ))}
+      </div>
+    </Container>
   );
-}
+};
 
 export default App;

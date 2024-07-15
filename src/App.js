@@ -1,26 +1,25 @@
-import React, { useReducer } from 'react';
- import Filter from './components/Filter';
-import './App.css'; 
-import { initialState, reducer } from './components/reducer';
-import CardComponent from './components/CardComponent';
-import { Container } from 'react-bootstrap';
+import React from 'react'; 
+import './App.css';
+import { MyContextMainComponent } from './components/context/MyContextMainComponent';
+import { ReducerMainComponent } from './components/useReducersComponent/ReducerMainComponent';
+import Filter from './features/cards/Filter';
+import CardList from './features/cards/CardList';
+
+
 
 const App = () => {
-  const [state, dispatch] = useReducer(reducer, initialState);
-
-  const filteredCards = state.filter === 'All' ? state.cards : state.cards.filter(card => card.category === state.filter);
-  console.log(filteredCards);
-
   return (
-    <Container>
-      <h1>Card Management</h1>
-      <Filter setFilter={(filter) => dispatch({ type: 'SET_FILTER', payload: filter })} /><br />
-      <div className="card-list">
-        {filteredCards.map(card => (
-          <CardComponent key={card.id} card={card} onDelete={(id) => dispatch({ type: 'DELETE_CARD', payload: id })} />
-        ))}
-      </div>
-    </Container>
+    <>
+    <div>
+      <Filter />
+      <hr />
+      <CardList />
+    </div>
+    <hr />
+   <MyContextMainComponent /> 
+   <hr />
+   <ReducerMainComponent />
+    </>
   );
 };
 

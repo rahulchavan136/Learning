@@ -1,24 +1,31 @@
-import React from 'react'; 
+import React from 'react';
 import './App.css';
-import { MyContextMainComponent } from './components/context/MyContextMainComponent';
-import { ReducerMainComponent } from './components/useReducersComponent/ReducerMainComponent';
-import Filter from './features/cards/Filter';
-import CardList from './features/cards/CardList';
-
-
+import 'bootstrap/dist/css/bootstrap.min.css';
+// import ProductChildToParent from './productCToP/ProductChildToParent';
+// import Header from './lazyLoading/Header';
+// import LazyComponent from './lazyLoading/LazyComponent';
+// import { MyContextMainComponent } from './components/context/MyContextMainComponent';
+// import { ReducerMainComponent } from './components/useReducersComponent/ReducerMainComponent';
+// import { MainReduxComponent } from './features/cards/MainReduxComponent';
+// import { Product } from './productPToC/Product';
 
 const App = () => {
+
+  // const products = [
+  //   {productID:1,productName :"Product-1",releaseType:"New",discount:60},
+  //   {productID:2,productName :"Product-2",releaseType:"old",discount:40},
+  //   {productID:3,productName :"Product-3",releaseType:"old",discount:70},
+  //   {productID:4,productName :"Product-4",releaseType:"New",discount:80},
+  // ]
+
   return (
     <>
-    <div>
-      <Filter />
-      <hr />
-      <CardList />
-    </div>
-    <hr />
-   <MyContextMainComponent /> 
-   <hr />
-   <ReducerMainComponent />
+      {/* <LazyComponent />  issue with lazy loading component */}
+      {/* <ProductChildToParent /> */}
+      {/* <Product products ={products}/> */}
+      {/* <MainReduxComponent /> */}
+      {/* <MyContextMainComponent /> */}
+      {/* <ReducerMainComponent /> */}
     </>
   );
 };

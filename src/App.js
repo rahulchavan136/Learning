@@ -2,6 +2,8 @@ import React from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import GetData  from './getAPIData/GetData';
+import Parent from './components/Parent'
+ 
 // import ProductChildToParent from './productCToP/ProductChildToParent';
 // import Header from './lazyLoading/Header';
 // import LazyComponent from './lazyLoading/LazyComponent';
@@ -21,6 +23,7 @@ const App = () => {
 
   return (
     <>
+    <Parent />
       <GetData />
       {/* <LazyComponent />  issue with lazy loading component */}
       {/* <ProductChildToParent /> */}

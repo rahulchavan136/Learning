@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Button, Container } from 'react-bootstrap';
+import axios from 'axios';
 
 const apiUrl = 'https://jsonplaceholder.typicode.com/todos';
 
@@ -10,8 +11,9 @@ const GetData = () => {
 
 
     const fetchApiData = async () => {
-        const response = await fetch(apiUrl);
-        const result = await response.json();
+        const response = await axios.get(apiUrl);
+        // const result = await response.json();
+        const result = response.data
         setData(result);
 
         setFilterCompleted(result.filter((d) => d.completed === true));
